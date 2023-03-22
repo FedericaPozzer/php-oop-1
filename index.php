@@ -9,6 +9,7 @@
 
 require_once __DIR__ . "/db.php";
 require_once __DIR__ . "/Models/class_Movie.php";
+// require_once __DIR__ . "/Models/class_Genre.php"; 
 
 // $jaws = new Movie("Jaws", "Steven Spielberg", "An hungry shark attacks random people.", "1975");
 // $theMeg = new Movie("The Meg", "Jon Turteltaub", "An hungry and huge shark attacks random people.", "2018");
@@ -31,13 +32,13 @@ require_once __DIR__ . "/Models/class_Movie.php";
 </head>
 
 <body class="bg-primary p-2" style="--bs-bg-opacity: .5;">
-    <h1 class="text-light text-center mt-5">MOVIES</h1>
+    <h1 class="text-light text-center mt-5 fw-bolder">MOVIES</h1>
     <div class="container mt-5">
         <div class="row row-cols-3">
 
             <?php foreach ($movies_obj as $movie) : ?>
 
-                <div class="col">
+                <div class="col mt-4">
                     <div class="card text-bg-dark mb-3">
                         <h2 class="card-header"> <?php echo $movie->title; ?> </h2>
                         <div class="card-body">
@@ -47,7 +48,8 @@ require_once __DIR__ . "/Models/class_Movie.php";
                         </div>
                     </div>
 
-                    <p class=text-center> <?php echo $movie->whoDirectedWhat(); ?> </p>
+                    <p class="text-center lh-1"> <small> Il nostro fantastico metodo ci dice che: </small> </p>
+                    <p class="text-center lh-1"> <small> <?php echo $movie->whoDirectedWhat(); ?> </small> </p>
                 </div>
 
             <?php endforeach; ?>
