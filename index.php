@@ -29,10 +29,42 @@ class Movie
     }
 }
 
-$jaws = new Movie("Jaws", "Steven Spielberg", "An hungry shark attacks random people.", "1975");
-$theMeg = new Movie("The Meg", "Jon Turteltaub", "An hungry and huge shark attacks random people.", "2018");
-$tremors = new Movie("Tremors", "Ron Underwood", "An hungry thing attacks random people.", "1990");
+// $jaws = new Movie("Jaws", "Steven Spielberg", "An hungry shark attacks random people.", "1975");
+// $theMeg = new Movie("The Meg", "Jon Turteltaub", "An hungry and huge shark attacks random people.", "2018");
+// $tremors = new Movie("Tremors", "Ron Underwood", "An hungry thing attacks random people.", "1990");
 
+$movies = [
+    [
+        "title" => "Jaws",
+        "director" => "Steven Spielberg",
+        "plot" => "An hungry shark attacks random people.",
+        "year" => "1975"
+    ],
+    [
+        "title" => "The Meg",
+        "director" => "Jon Turteltaub",
+        "plot" => "An hungry and huge shark attacks random people.",
+        "year" => "2018"
+    ],
+    [
+        "title" => "Tremors",
+        "director" => "Ron Underwood",
+        "plot" => "An hungry thing attacks random people.",
+        "year" => "1990"
+    ]
+];
+
+$movies_obj = [];
+foreach ($movies as $movie) {
+    $movies_obj[] = new Movie(
+        $movie["title"],
+        $movie["director"],
+        $movie["plot"],
+        $movie["year"]
+    );
+}
+
+var_dump($movies_obj); // QUI FUNZIONA.. perchè sotto no?
 
 ?>
 
@@ -51,41 +83,23 @@ $tremors = new Movie("Tremors", "Ron Underwood", "An hungry thing attacks random
 </head>
 
 <body class="bg-primary p-2" style="--bs-bg-opacity: .5;">
-    <h1 class=" text-center mt-3">MOVIES</h1>
-    <div class="container mt-4">
+    <h1 class="text-light text-center mt-5">MOVIES</h1>
+    <div class="container mt-5">
         <div class="row row-cols-3">
-            <div class="col">
-                <div class="card text-bg-dark mb-3">
-                    <h2 class="card-header"> <?php echo $jaws->title ?> </h2>
-                    <div class="card-body">
-                        <p class="card-text"> <i> "<?php echo $jaws->plot ?>" </i> </p> <br>
-                        <p class="card-title"> Directed by <?php echo $jaws->director ?> </p>
-                        <p class="card-text"> Release year: <?php echo $jaws->year ?> </p>
-                    </div>
-                </div>
-            </div>
 
+            <?php foreach($movies_obj as $movie) : ?>
             <div class="col">
                 <div class="card text-bg-dark mb-3">
-                    <h2 class="card-header"> <?php echo $theMeg->title ?> </h2>
+                    <h2 class="card-header"> <?php $movie->title ?> </h2>
                     <div class="card-body">
-                        <p class="card-text"> <i> "<?php echo $theMeg->plot ?>" </i> </p>
-                        <p class="card-title"> Directed by <?php echo $theMeg->director ?> </p>
-                        <p class="card-text"> Release year: <?php echo $theMeg->year ?> </p>
+                        <p class="card-text"> <i> "<?php $movie->plot ?>" </i> </p> <br>
+                        <p class="card-title"> Directed by <?php $movie->director ?> </p>
+                        <p class="card-text"> Release year: <?php $movie->year ?> </p>
                     </div>
                 </div>
             </div>
+            <?php endforeach; ?>
 
-            <div class="col">
-                <div class="card text-bg-dark mb-3">
-                    <h2 class="card-header"> <?php echo $tremors->title ?> </h2>
-                    <div class="card-body">
-                        <p class="card-text"> <i> "<?php echo $tremors->plot ?>" </i> </p> <br>
-                        <p class="card-title"> Directed by <?php echo $tremors->director ?> </p>
-                        <p class="card-text"> Release year: <?php echo $tremors->year ?> </p>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </body>
