@@ -6,13 +6,24 @@
 - vengono istanziati almeno due oggetti 'Movie' e stampati a schermo i valori delle relative proprietà -->
 
 <?php
+class Genre {
+    public $genreType;
 
-// class Genre {
-//     public $genreType;
+    public function __construct($_genreType) {
+        $this->genreType = $_genreType;
+    }
 
-//     public function __construct($_genreType)
-// }
+}
 
+$horror = new Genre("horror");
+$comedy = new Genre("comedy");
+$thriller = new Genre("thriller");
+$sci_fi = new Genre("sci-fi")
+
+?>
+
+
+<?php
 class Movie
 {
     public $title;
@@ -66,7 +77,7 @@ foreach ($movies as $movie) {
         $movie["title"],
         $movie["director"],
         $movie["plot"],
-        $movie["year"]
+        $movie["year"],
     );
 }
 
@@ -106,7 +117,6 @@ foreach ($movies as $movie) {
                     </div>
 
                     <p class=text-center> <?php echo $movie->whoDirectedWhat(); ?> </p>
-
                 </div>
 
             <?php endforeach; ?>
