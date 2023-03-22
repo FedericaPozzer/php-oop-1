@@ -6,82 +6,13 @@
 - vengono istanziati almeno due oggetti 'Movie' e stampati a schermo i valori delle relative proprietà -->
 
 <?php
-class Genre {
-    public $genreType;
 
-    public function __construct($_genreType) {
-        $this->genreType = $_genreType;
-    }
-
-}
-
-$horror = new Genre("horror");
-$comedy = new Genre("comedy");
-$thriller = new Genre("thriller");
-$sci_fi = new Genre("sci-fi")
-
-?>
-
-
-<?php
-class Movie
-{
-    public $title;
-    public $director;
-    public $plot;
-    public $year;
-    // public $genre;
-
-    public function __construct($_title, $_director, $_plot, $_year)
-    {
-        $this->title = $_title;
-        $this->director = $_director;
-        $this->plot = $_plot;
-        $this->year = $_year;
-    }
-
-    public function whoDirectedWhat()
-    {
-        return "Il film $this->title è stato diretto da $this->director!";
-    }
-}
+require_once __DIR__ . "/db.php";
+require_once __DIR__ . "/Models/class_Movie.php";
 
 // $jaws = new Movie("Jaws", "Steven Spielberg", "An hungry shark attacks random people.", "1975");
 // $theMeg = new Movie("The Meg", "Jon Turteltaub", "An hungry and huge shark attacks random people.", "2018");
 // $tremors = new Movie("Tremors", "Ron Underwood", "An hungry thing attacks random people.", "1990");
-
-$movies = [
-    [
-        "title" => "Jaws",
-        "director" => "Steven Spielberg",
-        "plot" => "An hungry shark attacks random people.",
-        "year" => "1975"
-    ],
-    [
-        "title" => "The Meg",
-        "director" => "Jon Turteltaub",
-        "plot" => "An hungry and huge shark attacks random people.",
-        "year" => "2018"
-    ],
-    [
-        "title" => "Tremors",
-        "director" => "Ron Underwood",
-        "plot" => "An hungry thing attacks random people.",
-        "year" => "1990"
-    ]
-];
-
-$movies_obj = [];
-foreach ($movies as $movie) {
-    $movies_obj[] = new Movie(
-        $movie["title"],
-        $movie["director"],
-        $movie["plot"],
-        $movie["year"],
-    );
-}
-
-// var_dump($movies_obj); // QUI FUNZIONA.. perchè sotto no?
 
 ?>
 
