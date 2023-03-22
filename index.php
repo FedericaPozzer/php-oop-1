@@ -55,7 +55,7 @@ $movies = [
 ];
 
 $movies_obj = [];
-foreach ($movies as $movie) {
+foreach($movies as $movie) {
     $movies_obj[] = new Movie(
         $movie["title"],
         $movie["director"],
@@ -64,7 +64,7 @@ foreach ($movies as $movie) {
     );
 }
 
-var_dump($movies_obj); // QUI FUNZIONA.. perchè sotto no?
+// var_dump($movies_obj); // QUI FUNZIONA.. perchè sotto no?
 
 ?>
 
@@ -88,16 +88,18 @@ var_dump($movies_obj); // QUI FUNZIONA.. perchè sotto no?
         <div class="row row-cols-3">
 
             <?php foreach($movies_obj as $movie) : ?>
+                
             <div class="col">
                 <div class="card text-bg-dark mb-3">
-                    <h2 class="card-header"> <?php $movie->title ?> </h2>
+                    <h2 class="card-header"> <?php echo $movie->title; ?> </h2>
                     <div class="card-body">
-                        <p class="card-text"> <i> "<?php $movie->plot ?>" </i> </p> <br>
-                        <p class="card-title"> Directed by <?php $movie->director ?> </p>
-                        <p class="card-text"> Release year: <?php $movie->year ?> </p>
+                        <p class="card-text"> <small> <i> "<?php echo $movie->plot; ?>" </i> </small> </p> <br>
+                        <p class="card-title"> Directed by <?php echo $movie->director; ?> </p>
+                        <p class="card-text"> Release year: <?php echo $movie->year; ?> </p>
                     </div>
                 </div>
             </div>
+
             <?php endforeach; ?>
 
         </div>
