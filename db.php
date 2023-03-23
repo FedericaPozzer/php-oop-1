@@ -35,7 +35,7 @@ $movies = [
     [
         "title" => "Everest",
         "director" => "Baltasar Kormákur",
-        "plot" => "An hungry mountain kills random people.",
+        "plot" => "An angry mountain kills random people.",
         "year" => "2015"
     ]
 ];
